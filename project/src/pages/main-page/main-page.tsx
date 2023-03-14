@@ -5,7 +5,6 @@ type CardCount = {
 }
 
 function MainScreen({cardsCount}: CardCount): JSX.Element {
-  const count = cardsCount;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -96,7 +95,11 @@ function MainScreen({cardsCount}: CardCount): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <CardRender count= {count}></CardRender>
+                <CardRender />
+                <CardRender />
+                <CardRender />
+                <CardRender />
+                <CardRender />
               </div>
             </section>
             <div className="cities__right-section">
