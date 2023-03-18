@@ -1,5 +1,11 @@
 function Cards(props: {
-  cards: { id: number; type: string; price: string; description: string; img:string }[];
+  cards: {
+    id: number;
+    type: string;
+    price: string;
+    description: string;
+    img: string;
+  }[];
 }): JSX.Element {
   return (
     <div className="cities__places-list places__list tabs__content">
@@ -16,7 +22,12 @@ function Cards(props: {
   );
 }
 
-function Card(props: { price: string; type: string; description: string; img:string }) {
+function Card(props: {
+  price: string;
+  type: string;
+  description: string;
+  img: string;
+}) {
   return (
     <article className="cities__card place-card">
       <div className="place-card__mark">
