@@ -39,5 +39,5 @@ function LoginScreen(): JSX.Element {
       </div>
     </main>
   </div>
- )
+ );
 }

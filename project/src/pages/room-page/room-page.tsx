@@ -333,5 +333,5 @@ function RoomScreen(): JSX.Element {
         </div>
       </main>
     </div>
-  )
+  );
 }

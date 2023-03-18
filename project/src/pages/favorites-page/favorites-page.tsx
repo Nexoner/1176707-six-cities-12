@@ -165,5 +165,5 @@ function FavoriteScreen(): JSX.Element {
         </a>
       </footer>
     </div>
-    )
+  );
 }
