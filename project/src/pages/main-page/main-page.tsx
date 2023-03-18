@@ -11,28 +11,28 @@ function MainScreen({ cardsCount }: CardCount): JSX.Element {
       type: 'first',
       price: '120',
       description: 'Beautiful &amp; luxurious apartment at great location',
-      img: 'img/apartment-01.jpg'
+      img: 'img/apartment-01.jpg',
     },
     {
       id: 1,
       type: 'second',
       price: '132',
       description: 'Canal View Prinsengracht',
-      img: 'img/apartment-02.jpg'
+      img: 'img/apartment-02.jpg',
     },
     {
       id: 2,
       type: 'third',
       price: '180',
       description: 'Nice, cozy, warm big bed apartment',
-      img: 'img/apartment-03.jpg'
+      img: 'img/apartment-03.jpg',
     },
     {
       id: 4,
       type: 'second',
       price: '80',
       description: 'Wood and stone place',
-      img: 'img/room.jpg'
+      img: 'img/room.jpg',
     },
   ];
   return (
