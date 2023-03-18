@@ -1,10 +1,42 @@
-import CardRender from '../../components/app/card-component';
+import Cards from '../../components/app/cards';
 
 type CardCount = {
   cardsCount: number;
-}
+};
 
-function MainScreen({cardsCount}: CardCount): JSX.Element {
+function MainScreen({ cardsCount }: CardCount): JSX.Element {
+  const cards = [
+    {
+      id: 0,
+      type: 'first',
+      price: '$120',
+      description: 'Beautiful &amp; luxurious apartment at great location',
+    },
+    {
+      id: 1,
+      type: 'second',
+      price: '$180',
+      description: 'Beautiful &amp; luxurious apartment at great location',
+    },
+    {
+      id: 2,
+      type: 'third',
+      price: '$220',
+      description: 'Beautiful &amp; luxurious apartment at great location',
+    },
+    {
+      id: 3,
+      type: 'fourth',
+      price: '$90',
+      description: 'Beautiful &amp; luxurious apartment at great location',
+    },
+    {
+      id: 4,
+      type: 'second',
+      price: '$150',
+      description: 'Beautiful &amp; luxurious apartment at great location',
+    },
+  ];
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -12,16 +44,23 @@ function MainScreen({cardsCount}: CardCount): JSX.Element {
           <div className="header__wrapper">
             <div className="header__left">
               <a className="header__logo-Link header__logo-Link--Linkctive">
-                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
+                <img
+                  className="header__logo"
+                  src="img/logo.svg"
+                  alt="6 cities logo"
+                  width="81"
+                  height="41"
+                />
               </a>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
                   <a className="header__nav-Link header__nav-Link--profile">
-                    <div className="header__avatar-wrapper user__avatar-wrapper">
-                    </div>
-                    <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
+                    <div className="header__avatar-wrapper user__avatar-wrapper"></div>
+                    <span className="header__user-name user__name">
+                      Oliver.conner@gmail.com
+                    </span>
                     <span className="header__favorite-count">3</span>
                   </a>
                 </li>
@@ -83,24 +122,24 @@ function MainScreen({cardsCount}: CardCount): JSX.Element {
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type">
                   Popular
-                  <svg className="places__sorting-Linkrrow" width="7" height="4">
+                  <svg
+                    className="places__sorting-Linkrrow"
+                    width="7"
+                    height="4"
+                  >
                     <use href="#icon-Linkrrow-select"></use>
                   </svg>
                 </span>
                 <ul className="places__options places__options--cussrcm places__options--opened">
-                  <li className="places__option places__option--Linkctive">Popular</li>
+                  <li className="places__option places__option--Linkctive">
+                    Popular
+                  </li>
                   <li className="places__option">Price: low src high</li>
                   <li className="places__option">Price: high src low</li>
                   <li className="places__option">srcp rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                <CardRender />
-                <CardRender />
-                <CardRender />
-                <CardRender />
-                <CardRender />
-              </div>
+              <Cards cards={cards} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
