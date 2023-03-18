@@ -335,3 +335,5 @@ function RoomScreen(): JSX.Element {
     </div>
   );
 }
+
+export default RoomScreen;

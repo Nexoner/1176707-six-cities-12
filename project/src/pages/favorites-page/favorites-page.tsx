@@ -167,3 +167,5 @@ function FavoriteScreen(): JSX.Element {
     </div>
   );
 }
+
+export default FavoriteScreen;
