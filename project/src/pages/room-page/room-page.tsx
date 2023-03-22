@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 function RoomScreen(): JSX.Element {
   return (
     <div className="page">
@@ -24,7 +26,9 @@ function RoomScreen(): JSX.Element {
                   >
                     <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                     <span className="header__user-name user__name">
+                      <Link to='/favorites' title='favorites'>
                       Oliver.conner@gmail.com
+                      </Link>
                     </span>
                     <span className="header__favorite-count">3</span>
                   </a>
