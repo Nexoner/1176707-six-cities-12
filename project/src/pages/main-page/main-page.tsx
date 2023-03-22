@@ -1,4 +1,5 @@
 import Cards from '../../components/app/cards';
+import {Link} from 'react-router-dom';
 
 type CardCount = {
   cardsCount: number;
@@ -8,28 +9,28 @@ function MainScreen({ cardsCount }: CardCount): JSX.Element {
   const cards = [
     {
       id: 0,
-      type: 'first',
+      type: 'Premium',
       price: '120',
       description: 'Beautiful &amp; luxurious apartment at great location',
       img: 'img/apartment-01.jpg',
     },
     {
       id: 1,
-      type: 'second',
+      type: '',
       price: '132',
       description: 'Canal View Prinsengracht',
       img: 'img/apartment-02.jpg',
     },
     {
       id: 2,
-      type: 'third',
+      type: '',
       price: '180',
       description: 'Nice, cozy, warm big bed apartment',
       img: 'img/apartment-03.jpg',
     },
     {
       id: 4,
-      type: 'second',
+      type: '',
       price: '80',
       description: 'Wood and stone place',
       img: 'img/room.jpg',
@@ -57,15 +58,17 @@ function MainScreen({ cardsCount }: CardCount): JSX.Element {
                   <a className="header__nav-Link header__nav-Link--profile">
                     <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                     <span className="header__user-name user__name">
+                      <Link to='/favorites' title='favorites'>
                       Oliver.conner@gmail.com
+                      </Link>
                     </span>
                     <span className="header__favorite-count">3</span>
                   </a>
                 </li>
                 <li className="header__nav-item">
-                  <a className="header__nav-Link">
+                  <Link to='/login' title='login'>
                     <span className="header__signout">Sign out</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
