@@ -2,12 +2,11 @@ import Cards from '../../components/app/cards';
 import {Link} from 'react-router-dom';
 import { CardsType } from '../../types/types';
 
-type CardCount = {
-  cardsCount: number;
+type MainProp = {
   cards: CardsType;
 };
 
-function MainScreen({ cardsCount }: CardCount): JSX.Element {
+function MainScreen({cards}: MainProp): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -112,7 +111,7 @@ function MainScreen({ cardsCount }: CardCount): JSX.Element {
                   <li className="places__option">srcp rated first</li>
                 </ul>
               </form>
-              <Cards />
+              <Cards cards={cards} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>

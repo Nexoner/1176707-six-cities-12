@@ -1,6 +1,8 @@
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
+import { CardType } from '../../types/types';
 
-function RoomScreen(): JSX.Element {
+function RoomScreen(prop: CardType): JSX.Element {
+  const { id } = useParams();
   return (
     <div className="page">
       <header className="header">
@@ -51,42 +53,42 @@ function RoomScreen(): JSX.Element {
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src="img/room.jpg"
+                  src={prop.img}
                   alt="Photo studio"
                 />
               </div>
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src="img/apartment-01.jpg"
+                  src={prop.img}
                   alt="Photo studio"
                 />
               </div>
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src="img/apartment-02.jpg"
+                  src={prop.img}
                   alt="Photo studio"
                 />
               </div>
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src="img/apartment-03.jpg"
+                  src={prop.img}
                   alt="Photo studio"
                 />
               </div>
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src="img/studio-01.jpg"
+                  src={prop.img}
                   alt="Photo studio"
                 />
               </div>
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src="img/apartment-01.jpg"
+                  src={prop.img}
                   alt="Photo studio"
                 />
               </div>
@@ -95,11 +97,11 @@ function RoomScreen(): JSX.Element {
           <div className="property__container container">
             <div className="property__wrapper">
               <div className="property__mark">
-                <span>Premium</span>
+                <span>{prop.type}</span>
               </div>
               <div className="property__name-wrapper">
                 <h1 className="property__name">
-                  Beautiful &amp; luxurious studio at great location
+                  {prop.description}
                 </h1>
                 <button
                   className="property__bookmark-button button"
@@ -360,7 +362,7 @@ function RoomScreen(): JSX.Element {
                 <div className="place-card__info">
                   <div className="place-card__price-wrapper">
                     <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;80</b>
+                      <b className="place-card__price-value">&euro;{prop.price}</b>
                       <span className="place-card__price-text">
                         &#47;&nbsp;night
                       </span>

@@ -1,13 +1,19 @@
 import { type } from "os";
 
 type CardsType = {
-    card: {
-        id: number;
-        type: string;
-        price: string;
-        description: string;
-        img: string;
-    }
+    id: number;
+    type: string;
+    price: string;
+    description: string;
+    img: string;
+}[];
+
+type CardType = {
+    key: number;
+    type: string;
+    img: string;
+    price: string;
+    description: string;
 }
 
-export type { CardsType }
+export type { CardsType, CardType }

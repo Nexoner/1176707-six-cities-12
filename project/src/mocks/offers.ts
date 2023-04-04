@@ -1,4 +1,6 @@
-export const cards = [
+import { CardsType } from '../types/types';
+
+export const cards: CardsType = [
   {
     id: 0,
     type: 'Premium',
@@ -21,7 +23,7 @@ export const cards = [
     img: 'img/apartment-03.jpg',
   },
   {
-    id: 4,
+    id: 3,
     type: '',
     price: '80',
     description: 'Wood and stone place',
