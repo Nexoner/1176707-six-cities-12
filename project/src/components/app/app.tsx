@@ -6,9 +6,12 @@ import FavoriteScreen from '../../pages/favorites-page/favorites-page';
 import { AppRoute, AuthorizationStatus } from '../../const/const';
 import ErrorScreen from '../../pages/error-page/404-page';
 import PrivateRoute from '../private-route/private-route';
+import {cards} from '../../mocks/offers';
+import { Cards } from '../../types/types';
 
 type AppScreenProps = {
   cardCount: number;
+  cards: Cards;
 }
 
 function App({cardCount}: AppScreenProps): JSX.Element {
@@ -17,7 +20,7 @@ function App({cardCount}: AppScreenProps): JSX.Element {
       <Routes>
         <Route
           path={AppRoute.Main}
-          element={<MainScreen cardsCount={0} />}
+          element={<MainScreen cardsCount={0} cards={cards} />}
         />
         <Route
           path={AppRoute.Login}

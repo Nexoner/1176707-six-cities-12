@@ -1,9 +1,10 @@
 import Cards from '../../components/app/cards';
 import {Link} from 'react-router-dom';
-import { cards } from '../../mocks/offers';
+import { CardsType } from '../../types/types';
 
 type CardCount = {
   cardsCount: number;
+  cards: CardsType;
 };
 
 function MainScreen({ cardsCount }: CardCount): JSX.Element {
@@ -111,7 +112,7 @@ function MainScreen({ cardsCount }: CardCount): JSX.Element {
                   <li className="places__option">srcp rated first</li>
                 </ul>
               </form>
-              <Cards cards={cards} />
+              <Cards />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
