@@ -4,6 +4,7 @@ import { CardsType } from '../../types/types';
 
 type FavoriteProp = {
   cards: CardsType;
+  index: number;
 };
 
 function FavoriteScreen(prop: FavoriteProp): JSX.Element {
@@ -64,7 +65,7 @@ function FavoriteScreen(prop: FavoriteProp): JSX.Element {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <Cards cards={prop.cards} />
+                  <Cards cards={prop.cards}  index={prop.index}/>
                 </div>
               </li>
 
@@ -77,7 +78,7 @@ function FavoriteScreen(prop: FavoriteProp): JSX.Element {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <Cards cards={prop.cards} />
+                  <Cards cards={prop.cards} index={prop.index}/>
                 </div>
               </li>
             </ul>

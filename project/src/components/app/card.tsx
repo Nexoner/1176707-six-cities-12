@@ -1,28 +1,14 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { CardType } from '../../types/types';
 
 function Card(prop: CardType) {
-  const [cardKey, setCardKey] = useState(false);
+  const {id} = useParams()
 
-  const handleMouseEnter = () => {
-    setCardKey(true);
-  };
-  const handleMouseLeave = () => {
-    setCardKey(false);
-  };
-
-  if(cardKey){
-    console.log(cardKey);
-  } else {
-    console.log('Deleted');
-  }
   return (
     <Link to='/offer/:id' title='/offer/:id'>
       <article
         className='cities__card place-card'
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
       >
         <div className='place-card__mark'>
           <span>{prop.type}</span>
