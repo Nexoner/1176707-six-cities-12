@@ -34,5 +34,9 @@ export const cards: CardsType = [
 export const getCards = (): Promise<CardsType> =>
   new Promise((resolve) => resolve(cards));
 
-export const getCardById = (id: string | undefined | number): Promise<CardType | undefined> =>
-  new Promise((resolve) => resolve(cards.find(({id: cardId}) => `${cardId}` === `${id}`)));
+export const getCardById = (id: string | number | undefined): Promise<CardType | undefined> => {
+  if(id === undefined) {
+    return Promise.resolve(undefined);
+  }
+  return new Promise((resolve) => resolve(cards.find(({id: cardId}) => `${cardId}` === `${id}`)));
+};

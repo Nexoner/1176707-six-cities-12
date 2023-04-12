@@ -1,11 +1,10 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {Link, useParams} from 'react-router-dom';
 import { getCardById } from '../../mocks/offers';
 import { CardType } from '../../types/types';
 
-function RoomScreen(props: {id?: string | number}): JSX.Element {
-  const { id: paramsId } = useParams();
-  const id = useMemo<string | number | undefined>(() => paramsId || props.id, [paramsId, props.id]);
+function RoomScreen(): JSX.Element {
+  const { id } = useParams<{id: string}>();
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [card, setCard] = useState<CardType>({
     id: -1,
