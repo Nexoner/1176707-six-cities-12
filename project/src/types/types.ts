@@ -1,5 +1,3 @@
-import { type } from "os";
-
 type CardsType = {
     id: number;
     type: string;

@@ -1,15 +1,11 @@
-import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { CardType } from '../../types/types';
 
 function Card(prop: CardType) {
-  const {id} = useParams()
-
+  const {id} = useParams();
   return (
-    <Link to='/offer/:id' title='/offer/:id'>
-      <article
-        className='cities__card place-card'
-      >
+    <Link to={`${prop.key}`} title='/offer/:id'>
+      <article className='cities__card place-card'>
         <div className='place-card__mark'>
           <span>{prop.type}</span>
         </div>
@@ -49,7 +45,7 @@ function Card(prop: CardType) {
           <h2 className='place-card__name'>
             <a>{prop.description}</a>
           </h2>
-          <p className='place-card__type'>Apartment</p>
+          <p className='place-card__type'>Apartment{id}</p>
         </div>
       </article>
     </Link>

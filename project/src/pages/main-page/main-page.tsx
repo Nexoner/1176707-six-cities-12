@@ -4,10 +4,9 @@ import { CardsType } from '../../types/types';
 
 type MainProp = {
   cards: CardsType;
-  index: number;
 };
 
-function MainScreen({cards, index}: MainProp): JSX.Element {
+function MainScreen({cards}: MainProp): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -112,7 +111,7 @@ function MainScreen({cards, index}: MainProp): JSX.Element {
                   <li className="places__option">srcp rated first</li>
                 </ul>
               </form>
-              <Cards cards={cards} index={index}/>
+              <Cards cards={cards}/>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
