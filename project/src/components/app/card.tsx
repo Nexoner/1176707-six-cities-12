@@ -1,19 +1,18 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CardType } from '../../types/types';
 
-function Card(prop: CardType) {
-  const {id} = useParams();
+function Card(props: CardType) {
   return (
-    <Link to={`${prop.key}`} title='/offer/:id'>
+    <Link to={`/offer/${props?.id as unknown as string}`} title='/offer/:id'>
       <article className='cities__card place-card'>
         <div className='place-card__mark'>
-          <span>{prop.type}</span>
+          <span>{props?.type}</span>
         </div>
         <div className='cities__image-wrapper place-card__image-wrapper'>
           <a>
             <img
               className='place-card__image'
-              src={prop.img}
+              src={props?.img}
               width='260'
               height='200'
               alt='jsx-Link11y/img-redundant-Linklt'
@@ -23,7 +22,7 @@ function Card(prop: CardType) {
         <div className='place-card__info'>
           <div className='place-card__price-wrapper'>
             <div className='place-card__price'>
-              <b className='place-card__price-value'>&euro;{prop.price}</b>
+              <b className='place-card__price-value'>&euro;{props?.price}</b>
               <span className='place-card__price-text'>&#47;&nbsp;night</span>
             </div>
             <button
@@ -43,9 +42,9 @@ function Card(prop: CardType) {
             </div>
           </div>
           <h2 className='place-card__name'>
-            <a>{prop.description}</a>
+            <a>{props?.description}</a>
           </h2>
-          <p className='place-card__type'>Apartment{id}</p>
+          <p className='place-card__type'>Apartment</p>
         </div>
       </article>
     </Link>

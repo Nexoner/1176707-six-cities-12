@@ -1,4 +1,4 @@
-import { CardsType } from '../types/types';
+import { CardsType, CardType } from '../types/types';
 
 export const cards: CardsType = [
   {
@@ -30,3 +30,9 @@ export const cards: CardsType = [
     img: 'img/room.jpg',
   },
 ];
+
+export const getCards = (): Promise<CardsType> =>
+  new Promise((resolve) => resolve(cards));
+
+export const getCardById = (id: string | undefined | number): Promise<CardType | undefined> =>
+  new Promise((resolve) => resolve(cards.find(({id: cardId}) => `${cardId}` === `${id}`)));

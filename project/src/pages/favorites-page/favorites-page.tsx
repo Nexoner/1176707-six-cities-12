@@ -1,12 +1,6 @@
 import { Link } from 'react-router-dom';
-import Cards from '../../components/app/cards';
-import { CardsType } from '../../types/types';
 
-type FavoriteProp = {
-  cards: CardsType;
-};
-
-function FavoriteScreen(prop: FavoriteProp): JSX.Element {
+function FavoriteScreen(): JSX.Element {
   return (
     <div className="page">
       <header className="header">
@@ -64,7 +58,7 @@ function FavoriteScreen(prop: FavoriteProp): JSX.Element {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <Cards cards={prop.cards} />
+                  {/* <Cards cards={prop.cards} /> */}
                 </div>
               </li>
 
@@ -77,7 +71,7 @@ function FavoriteScreen(prop: FavoriteProp): JSX.Element {
                   </div>
                 </div>
                 <div className="favorites__places">
-                  <Cards cards={prop.cards} />
+                  {/* <Cards cards={prop.cards} /> */}
                 </div>
               </li>
             </ul>

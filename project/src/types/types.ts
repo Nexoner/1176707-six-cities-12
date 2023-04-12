@@ -7,11 +7,11 @@ type CardsType = {
 }[];
 
 type CardType = {
-    key: number;
+    id: number;
     type: string;
     img: string;
     price: string;
     description: string;
 }
 
-export type { CardsType, CardType }
+export type { CardsType, CardType };

@@ -1,8 +1,33 @@
+import { useMemo, useState, useEffect } from 'react';
 import {Link, useParams} from 'react-router-dom';
+import { getCardById } from '../../mocks/offers';
 import { CardType } from '../../types/types';
 
-function RoomScreen(prop: CardType): JSX.Element {
-  const { id } = useParams();
+function RoomScreen(props: {id?: string | number}): JSX.Element {
+  const { id: paramsId } = useParams();
+  const id = useMemo<string | number | undefined>(() => paramsId || props.id, [paramsId, props.id]);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const [card, setCard] = useState<CardType>({
+    id: -1,
+    type: '',
+    img: '',
+    price: '',
+    description: '',
+  });
+
+  useEffect(() => {
+    (async () => {
+      const cardData = await getCardById(id);
+      if(!cardData) {
+        return;
+      }
+      setCard(cardData);
+      setIsDataLoaded(true);
+    })();
+  }, [id]);
+  if(!isDataLoaded) {
+    return <div>Загружаем</div>;
+  }
   return (
     <div className="page">
       <header className="header">
@@ -53,42 +78,42 @@ function RoomScreen(prop: CardType): JSX.Element {
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src={prop.img}
+                  src={card.img}
                   alt="Photo studio"
                 />
               </div>
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src={prop.img}
+                  src={card.img}
                   alt="Photo studio"
                 />
               </div>
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src={prop.img}
+                  src={card.img}
                   alt="Photo studio"
                 />
               </div>
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src={prop.img}
+                  src={card.img}
                   alt="Photo studio"
                 />
               </div>
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src={prop.img}
+                  src={card.img}
                   alt="Photo studio"
                 />
               </div>
               <div className="property__image-wrapper">
                 <img
                   className="property__image"
-                  src={prop.img}
+                  src={card.img}
                   alt="Photo studio"
                 />
               </div>
@@ -97,11 +122,11 @@ function RoomScreen(prop: CardType): JSX.Element {
           <div className="property__container container">
             <div className="property__wrapper">
               <div className="property__mark">
-                <span>{prop.type}</span>
+                <span>{card.type}</span>
               </div>
               <div className="property__name-wrapper">
                 <h1 className="property__name">
-                  {prop.description}
+                  {card.description}
                 </h1>
                 <button
                   className="property__bookmark-button button"
@@ -138,7 +163,7 @@ function RoomScreen(prop: CardType): JSX.Element {
                 </li>
               </ul>
               <div className="property__price">
-                <b className="property__price-value">&euro;120</b>
+                <b className="property__price-value">&euro;{card.price}</b>
                 <span className="property__price-text">&nbsp;night</span>
               </div>
               <div className="property__inside">
@@ -362,7 +387,7 @@ function RoomScreen(prop: CardType): JSX.Element {
                 <div className="place-card__info">
                   <div className="place-card__price-wrapper">
                     <div className="place-card__price">
-                      <b className="place-card__price-value">&euro;{prop.price}</b>
+                      <b className="place-card__price-value">&euro;{card.price}</b>
                       <span className="place-card__price-text">
                         &#47;&nbsp;night
                       </span>
