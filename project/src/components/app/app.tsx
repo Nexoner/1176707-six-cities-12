@@ -1,13 +1,12 @@
 import MainScreen from '../../pages/main-page/main-page';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginScreen from '../../pages/login-page/login-page';
-// import FavoriteScreen from '../../pages/favorites-page/favorites-page';
-import { AppRoute } from '../../const/const';
+import FavoriteScreen from '../../pages/favorites-page/favorites-page';
+import { AppRoute, AuthorizationStatus } from '../../const/const';
 import ErrorScreen from '../../pages/error-page/404-page';
-// import PrivateRoute from '../private-route/private-route';
+import PrivateRoute from '../private-route/private-route';
 import Cards from './cards';
 import RoomScreen from '../../pages/room-page/room-page';
-// import RoomScreen from '../../pages/room-page/room-page';
 
 function App(): JSX.Element {
   return (
@@ -22,14 +21,14 @@ function App(): JSX.Element {
         </Route>
 
         <Route path='/offer/:id' element={<RoomScreen />}/>
-        {/* <Route
+        <Route
           path={AppRoute.Favorites}
           element={
             <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
               <FavoriteScreen />
             </PrivateRoute>
           }
-        /> */}
+        />
         <Route path='*' element={<ErrorScreen />} />
       </Routes>
     </BrowserRouter>
