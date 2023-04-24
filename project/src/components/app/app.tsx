@@ -7,17 +7,30 @@ import ErrorScreen from '../../pages/error-page/404-page';
 import PrivateRoute from '../private-route/private-route';
 import Cards from './cards';
 import RoomScreen from '../../pages/room-page/room-page';
+import { Point } from '../../types/types';
+import { useState } from 'react';
+import { POINTS } from '../../mocks/points';
 
 function App(): JSX.Element {
+  const [selectedPoint, setSelectedPoint] = useState<Point | undefined>(
+    undefined
+  );
+
+  const onListItemHover = (listItemName: string) => {
+    const currentPoint = POINTS.find((point) =>
+      point.title === listItemName,
+    );
+    setSelectedPoint(currentPoint);
+  };
   return (
     <BrowserRouter>
       <Routes>
         <Route path={AppRoute.Login} element={<LoginScreen />} />
         <Route
           path={AppRoute.Main}
-          element={<MainScreen />}
+          element={<MainScreen point={selectedPoint} />}
         >
-          <Route path='/' element={<Cards />} />
+          <Route path='/' element={<Cards points={POINTS} onListItemHover={onListItemHover} />} />
         </Route>
 
         <Route path='/offer/:id' element={<RoomScreen />}/>

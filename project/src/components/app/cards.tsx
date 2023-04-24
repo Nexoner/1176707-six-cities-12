@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import { getCards } from '../../mocks/offers';
-import { CardsType } from '../../types/types';
+import { CardsType, Points } from '../../types/types';
 import Card from './card';
 
-function Cards(): JSX.Element {
+type CardsProps = {
+  points: Points;
+  onListItemHover: (listItemName: string) => void;
+};
+
+function Cards(props: CardsProps): JSX.Element {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [cards, setCards] = useState<CardsType>([]);
 

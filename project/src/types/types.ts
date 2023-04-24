@@ -14,4 +14,23 @@ type CardType = {
     description: string;
 }
 
-export type { CardsType, CardType };
+type City = {
+    title: string,
+    lat: number,
+    lng: number,
+    zoom: number,
+}
+
+type Points = {
+    title: string,
+    lat: number,
+    lng: number
+}[];
+
+type Point = {
+    title: string,
+    lat: number,
+    lng: number
+};
+
+export type { CardsType, CardType, City, Points, Point };
